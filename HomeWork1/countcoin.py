@@ -4,10 +4,10 @@ def run_main():
     img = cv2.imread('/home/wad/homeWork/computerVisionClass/HomeWork1/image4.JPG',0)
     cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
     # img = cv2.medianBlur(img,55)
-    img = cv2.bilateralFilter(img,17,105,105)
+    img = cv2.bilateralFilter(img,25,100,100)
     img = cv2.medianBlur(img,5)
     
-    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,0.9,120,param1=50,param2=30,minRadius=105,maxRadius=200)
+    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,0.9,120,param1=50,param2=30,minRadius=100,maxRadius=180)
 
     circles = np.uint16(np.around(circles))
     for i in circles[0,:]:
